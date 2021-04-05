@@ -7,6 +7,17 @@ class Car:
         self.path = path
         self.wait_time = OrderedDict()
 
+def clearLoss(data, d):
+    data_replace = data.copy()
+    for k,v in data.items():
+        if hasattr(data[k], 'loss') & hasattr(data[k], 'reset_loss'):
+            data_replace[k].reset_loss()
+        else:
+            print("loss havent implemented!!")
+            return data
+
+    data = data_replace
+    return data
 
 def run(map_data, schedules):
     # init intersection
@@ -27,19 +38,28 @@ def run(map_data, schedules):
         if int_start in interQueue:
             interQueue[int_start][st_start].append(car)
 
+    # init street loss
+    clearLoss(map_data.street, map_data.misc.d)
+
     # sim loop
     arrived = []
     for t in range(0, map_data.misc.d):
-        if t % 100 == 0:
-            print('tick: {} / {}'.format(t, map_data.misc.d))
+        #if t % 100 == 0:
+            #print('tick: {} / {}'.format(t, map_data.misc.d))
+
         interQueue, arrived = tick(map_data.street, interQueue, schedules, arrived, t)
 
         if len(arrived) == map_data.misc.trip_count:
             print('All cars arrived final destination, ends sim at tick {}'.format(t))
             break
 
+    loss_total = 0
+    for st_name, st in map_data.street.items():
+        loss_total += sum(st.loss)
+        map_data.intersection[st.end].incoming_weight[st_name].append(sum(st.loss))
+
     score = calc_score(map_data.misc.d, map_data.misc.f, arrived)
-    return score, arrived
+    return loss_total, score, arrived
 
 def tick(street_data, interQueue, schedules, arrived, t):
     for i, sch in schedules.items():
@@ -65,10 +85,15 @@ def tick(street_data, interQueue, schedules, arrived, t):
                         del car.path[0]
                         if dest.end in interQueue:
                             interQueue[dest.end][dest_name].append(car)
+
+                        # if car have not arrived yet,
+                        # the loss of the street that it is staying in +=1
+                        street_data[st_name].add_loss(t)
                     else:
                         arrived.append(car)
 
                 break
+
     return interQueue, arrived
 
 def calc_score(d, f, arrived):

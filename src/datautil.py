@@ -1,23 +1,53 @@
 import os
 import yaml
+import numpy as np
 
 class Street:
-    def __init__(self, begin, end, length):
+    def __init__(self, begin, end, length, d):
         self.begin = begin
         self.end = end
         self.length = length
+        self.loss = [0]*d
+        self.cars_passed = 0
+        self.d = d
+
+    def reset_loss(self):
+        self.loss = [0]*self.d
+
+    def add_loss(self, t):
+        self.loss[t] += 1
+
+    def add_cars_passed(self):
+        self.cars_passed += 1
 
 class Trip:
-    def __init__(self, str_count, path, id):
+    def __init__(self, str_count, path, id, street):
         self.str_count = str_count
         self.path = path
         self.id = id
 
+        for p in path:
+            street[p].add_cars_passed()
+
 class Intersection:
-    def __init__(self, id, incoming=None, outgoing=None):
+    def __init__(self, id, learning_rate, incoming=None, outgoing=None):
         self.id = id
         self.incoming = incoming if incoming != None else []
         self.outgoing = outgoing if outgoing != None else []
+        self.incoming_weight = {} # a dictionary of list, street name as key, list values are weights from different iterations
+        self.learning_rate = learning_rate
+
+    def get_incoming_weight_normed(self):
+        weight_len = len(list(self.incoming_weight.values())[0])
+        weight = [1]
+        for i in range(weight_len-1):
+            weight.append(self.learning_rate*np.sum(weight))
+        weight = weight / np.sum(weight)
+        sum = np.sum(np.array(list(self.incoming_weight.values())), axis = 0)
+        self.incoming_weight_normed = {}
+        for st_name, st_weight in self.incoming_weight.items():
+            self.incoming_weight_normed[st_name] = np.nan_to_num(np.sum(st_weight / sum * weight), 0)
+        return self.incoming_weight_normed
 
 class Misc:
     def __init__(self, d, int_count, str_count, trip_count, f):
@@ -35,10 +65,11 @@ class MapData:
         self.trip = trip
 
 class DataManager:
-    def __init__(self, map_path, schedule_path, result_path):
+    def __init__(self, map_path, schedule_path, result_path, learning_rate):
         self.map_path = map_path
         self.schedule_path = schedule_path
         self.result_path = result_path
+        self.learning_rate = learning_rate
 
     def check_path(self):
         assert os.path.exists(self.map_path) == True
@@ -61,7 +92,7 @@ class DataManager:
             os.makedirs(result_dir)
             assert os.path.exists(result_dir) == True
 
-    def load_map(self):
+    def load_map(self, trip_count_max):
         inter = []
         street = {}
         trip = []
@@ -75,22 +106,26 @@ class DataManager:
                     misc = Misc(int(d),
                                 int(int_count),
                                 int(str_count),
-                                int(trip_count),
+                                min(int(trip_count), (trip_count_max if trip_count_max > 0 else np.PINF)),
                                 int(f))
 
                     for i in range(0, misc.int_count):
-                        inter.append(Intersection(i))
+                        inter.append(Intersection(i, self.learning_rate))
 
                 elif index <= misc.str_count:
                     begin, end, name, length = line.split(' ')
-                    street[name] = Street(int(begin), int(end), int(length))
+                    street[name] = Street(int(begin), int(end), int(length),int(d))
                     inter[int(end)].incoming.append(name)
                     inter[int(begin)].outgoing.append(name)
+                    inter[int(end)].incoming_weight[name] = []
+
+                elif index <= misc.str_count + misc.trip_count:
+                    str_count, *path = line.split(' ')
+                    trip.append(Trip(int(str_count), path, trip_id, street))
+                    trip_id += 1
 
                 else:
-                    str_count, *path = line.split(' ')
-                    trip.append(Trip(int(str_count), path, trip_id))
-                    trip_id += 1
+                    break
 
         assert len(inter) == misc.int_count
         assert len(street) == misc.str_count

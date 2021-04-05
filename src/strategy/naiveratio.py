@@ -3,7 +3,6 @@ import numpy as np
 
 import datautil as du
 
-
 # find all intersection then divide car flow
 def validate(cfg):
     assert ('period' in cfg.keys())
@@ -30,7 +29,10 @@ def gen_schedule(map_data, cfg):
 
         sch = OrderedDict()
         for st_name, trip_count in count_per_inter[i].items():
-            rate = int(round(trip_count / s * cfg['period']))
+            ratio = trip_count / s
+            rate = int(round(ratio * cfg['period']))
+            map_data.intersection[i].incoming_weight[st_name].append(ratio)
+
             if trip_count > 0 and rate == 0:
                 sch[st_name] = 1
             else:

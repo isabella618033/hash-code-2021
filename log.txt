@@ -1,0 +1,202 @@
+2021-04-05 13:26:40.696797 Run Start ===========================================
+2021-04-05 13:26:40.696827 Prepare Config ======================================
+{'map_path': './map/hashcode-kaggle.in', 'schedule_path': './schedule', 'result_path': './result', 'strategy': {'name': 'iterative', 'config': {'period': 10, 'period_max': 10, 'iterations': 30, 'learning_rate': 0.2, 'naiveratio': {'name': 'naiveratio', 'config': {'period': 10, 'period_max': 10}}}}, 'trip_count_max': -1}
+WARN: schedule output path exists!  Will overwrite!
+./schedule/iterative.in
+WARN: result output path exists!  Will overwrite!
+./result/iterative.yaml
+2021-04-05 13:26:40.702176 Load Map Data =======================================
+Duration: 7071
+Intersections: 8000
+Streets: 63968
+Cars: 1000
+Bonus: 1000
+2021-04-05 13:27:08.576654 Generate Schedule ===================================
+{'period': 10, 'period_max': 10, 'iterations': 30, 'learning_rate': 0.2, 'naiveratio': {'name': 'naiveratio', 'config': {'period': 10, 'period_max': 10}}}
+2021-04-05 13:27:13.558904 0-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 13:30:36.820726 0-th Simulation Ends ================================
+loss_total: 119000
+Score: 4571848
+Arrived/Total: 1000 / 1000
+2021-04-05 13:31:08.100031 1-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 13:34:37.146770 1-th Simulation Ends ================================
+loss_total: 119000
+Score: 4572171
+Arrived/Total: 1000 / 1000
+2021-04-05 13:35:14.716082 2-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4159
+2021-04-05 13:38:46.087187 2-th Simulation Ends ================================
+loss_total: 119000
+Score: 4572835
+Arrived/Total: 1000 / 1000
+2021-04-05 13:39:18.684057 3-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 13:42:56.741403 3-th Simulation Ends ================================
+loss_total: 119000
+Score: 4567724
+Arrived/Total: 1000 / 1000
+2021-04-05 13:43:31.031152 4-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4061
+2021-04-05 13:46:41.281244 4-th Simulation Ends ================================
+loss_total: 119000
+Score: 4573199
+Arrived/Total: 1000 / 1000
+2021-04-05 13:47:12.028484 5-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4061
+2021-04-05 13:50:34.010029 5-th Simulation Ends ================================
+loss_total: 119000
+Score: 4573167
+Arrived/Total: 1000 / 1000
+2021-04-05 13:51:08.874506 6-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 13:54:50.718266 6-th Simulation Ends ================================
+loss_total: 119000
+Score: 4568038
+Arrived/Total: 1000 / 1000
+2021-04-05 13:55:26.872042 7-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 13:58:54.770192 7-th Simulation Ends ================================
+loss_total: 119000
+Score: 4567902
+Arrived/Total: 1000 / 1000
+2021-04-05 13:59:27.003948 8-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4070
+2021-04-05 14:02:44.882070 8-th Simulation Ends ================================
+loss_total: 119000
+Score: 4573015
+Arrived/Total: 1000 / 1000
+2021-04-05 14:03:17.622286 9-th Simulation Starts ==============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 14:06:42.676742 9-th Simulation Ends ================================
+loss_total: 119000
+Score: 4567870
+Arrived/Total: 1000 / 1000
+2021-04-05 14:07:15.931041 10-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 14:10:42.279753 10-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4567857
+Arrived/Total: 1000 / 1000
+2021-04-05 14:11:18.148229 11-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 14:15:02.219112 11-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4567857
+Arrived/Total: 1000 / 1000
+2021-04-05 14:15:38.388874 12-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4070
+2021-04-05 14:19:27.059213 12-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573015
+Arrived/Total: 1000 / 1000
+2021-04-05 14:20:05.565675 13-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4070
+2021-04-05 14:24:03.796408 13-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573015
+Arrived/Total: 1000 / 1000
+2021-04-05 14:26:07.591268 14-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 14:30:17.921760 14-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573426
+Arrived/Total: 1000 / 1000
+2021-04-05 14:31:01.527224 15-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 14:34:55.189660 15-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573426
+Arrived/Total: 1000 / 1000
+2021-04-05 14:35:36.661591 16-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 14:39:25.798543 16-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573426
+Arrived/Total: 1000 / 1000
+2021-04-05 14:40:07.476000 17-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4070
+2021-04-05 14:43:55.264305 17-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573015
+Arrived/Total: 1000 / 1000
+2021-04-05 14:44:37.574385 18-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 14:48:26.780330 18-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573297
+Arrived/Total: 1000 / 1000
+2021-04-05 14:49:09.522181 19-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 14:52:58.893500 19-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573297
+Arrived/Total: 1000 / 1000
+2021-04-05 14:53:41.975102 20-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 14:57:30.284720 20-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573359
+Arrived/Total: 1000 / 1000
+2021-04-05 14:58:13.981880 21-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:02:03.984696 21-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573359
+Arrived/Total: 1000 / 1000
+2021-04-05 15:02:47.936282 22-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:06:37.432607 22-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573359
+Arrived/Total: 1000 / 1000
+2021-04-05 15:07:21.869459 23-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:11:12.264916 23-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573426
+Arrived/Total: 1000 / 1000
+2021-04-05 15:11:57.183325 24-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:15:46.959280 24-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573297
+Arrived/Total: 1000 / 1000
+2021-04-05 15:16:32.538232 25-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:20:22.896461 25-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573297
+Arrived/Total: 1000 / 1000
+2021-04-05 15:21:08.914177 26-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:24:57.750512 26-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573426
+Arrived/Total: 1000 / 1000
+2021-04-05 15:25:44.132353 27-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4100
+2021-04-05 15:29:34.172749 27-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573426
+Arrived/Total: 1000 / 1000
+2021-04-05 15:30:22.636753 28-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4070
+2021-04-05 15:34:11.126498 28-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4573015
+Arrived/Total: 1000 / 1000
+2021-04-05 15:34:58.446242 29-th Simulation Starts =============================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 15:38:49.651499 29-th Simulation Ends ===============================
+loss_total: 119000
+Score: 4567857
+Arrived/Total: 1000 / 1000
+2021-04-05 15:39:37.392147 Simulation Starts ===================================
+All cars arrived final destination, ends sim at tick 4158
+2021-04-05 15:43:29.614613 Simulation Ends =====================================
+loss_total: 119000
+Score: 4567870
+Arrived/Total: 1000 / 1000
+2021-04-05 15:44:55.952475 Run End =============================================

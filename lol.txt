@@ -1,0 +1,16 @@
+2021-04-05 14:23:44.155821 Run Start ===========================================
+2021-04-05 14:23:44.155878 Prepare Config ======================================
+{'map_path': './map/hashcode-kaggle.in', 'schedule_path': './schedule', 'result_path': './result', 'strategy': {'name': 'iterative', 'config': {'period': -1, 'period_max': 10, 'iterations': 30, 'learning_rate': 0.2, 'naiveratio': {'name': 'naiveratio', 'config': {'period': 10, 'period_max': 10}}}}, 'trip_count_max': -1}
+WARN: schedule output path exists!  Will overwrite!
+./schedule/iterative.in
+WARN: result output path exists!  Will overwrite!
+./result/iterative.yaml
+2021-04-05 14:23:44.161646 Load Map Data =======================================
+Duration: 7071
+Intersections: 8000
+Streets: 63968
+Cars: 1000
+Bonus: 1000
+2021-04-05 14:24:25.137954 Generate Schedule ===================================
+{'period': -1, 'period_max': 10, 'iterations': 30, 'learning_rate': 0.2, 'naiveratio': {'name': 'naiveratio', 'config': {'period': 10, 'period_max': 10}}}
+2021-04-05 14:24:33.294581 0-th Simulation Starts ==============================

@@ -1,7 +1,17 @@
 map_path: ./map/hashcode-kaggle.in
-schedule_path: ./schedule/naiveratio.in
-result_path: ./result/naiveratio.yaml
+schedule_path: ./schedule
+result_path: ./result
 strategy:
-  name: naiveratio
+  name: iterative
   config:
-    period: 6 
+    period: -1 # set as -1 to use period_max, else period would be used
+    period_max: 10
+    iterations: 30
+    learning_rate: 0.2
+    naiveratio:
+      name: naiveratio
+      config:
+        period: 10
+        period_max: 10
+
+trip_count_max: -1 # set as -1 to load ALL of the trips
